@@ -1,0 +1,43 @@
+extractors:
+  - extractor:
+    name: "NPC"
+    steps:
+      - step:
+        number: 1
+        website: "https://nigeriapropertycentre.com/for-sale?q=for-sale"
+        attributePaths: 
+          url: "div.wp-block-content a <href>"
+
+      - step:
+        number: 2
+        attributePaths: 
+          title: "div.wp-block-content h4.content-title"
+          description: "div.tab-body p"
+          image: "ul#imageGallery li.slitem img.primary-image <src>"
+          price: "span[itemprop='price'].price"
+          locationOne: "div.wp-block-content p"
+
+    activeSteps: [1, 2]
+
+  - extractor:
+    name: "Propery Pro"
+    steps:
+      - step:
+        number: 1
+        website: "https://www.propertypro.ng/property-for-sale"
+        attributePaths: 
+          url: "div.single-room-img > a.single-room-img-a <href>"
+
+      - step:
+        number: 2
+        attributePaths: 
+          title: "div.duplex-text"
+          listingBody: "div.description-text"
+          image: "div.item img.slider-image <src>"
+          price: "div.duplex-view-text h2:nth-child(2)"
+          # locationOne: "div.single-room-text h4"
+          agentPhone: "div.single-service-block a"
+
+    activeSteps: [1, 2]
+
+transformers: null
